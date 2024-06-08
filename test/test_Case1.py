@@ -1,5 +1,7 @@
 import email
 
+import pytest
+
 from PageObjectModel.HomePage import HomePage
 from PageObjectModel.TestCase import TestCasePage
 from PageObjectModel.SignUpLoginPage import SignUpLoginPage
@@ -43,41 +45,65 @@ class TestCase1(BaseClass):
         assert homepage.AccDeleted().is_displayed(), "Wrong click"
         SignUp.ClickContinue().click()
 
+    @pytest.mark.parametrize(
+        "email ,password,is_valid", [
+        ("NurSyu@gmail.com", "@123QWea", True),
+        ("MurSyu@gmail.com", "@123QWea", False)
+            ]
+    )
+    def test_login_credentials(self, email, password, is_valid):
+        self.getLogger().info("THis message is to notify that the test has just been started")
+        self.getLogger().debug("Initializing HomePage and SignUpLoginPage objects with driver")
+        homepage = HomePage(self.driver)
+        SignUp = SignUpLoginPage(self.driver)
+        self.getLogger().debug("Navigating to homepage")
+        homepage.NavSignUP_Login().click()
+        self.wait()
 
+        SignUp.LogEmail().send_keys(email)
+        SignUp.LogPassword().send_keys(password)
+        SignUp.clickLogin().click()
+        if is_valid:
+            assert SignUp.SuccessfulLogin().is_displayed(), "Email is invalid"
+        else:
+            assert SignUp.ErrorLogin().is_displayed(), "Login should fail with invalid credentials"
+        self.getLogger().info("THis message is to notify that the test has just been ended")
+
+    """  
     def test_login_valid_credentials(self):
-        self.getLogger().info("THis message is to notify that the test has just been started")
-        self.getLogger().debug("Initializing HomePage and SignUpLoginPage objects with driver")
-        homepage = HomePage(self.driver)
-        SignUp = SignUpLoginPage(self.driver)
-
-        self.getLogger().debug("Navigating to homepage")
-        homepage.NavSignUP_Login().click()
-        self.wait()
-
-        SignUp.LogEmail().send_keys("NurSyu@gmail.com")
-        SignUp.LogPassword().send_keys("@123QWea")
-        SignUp.clickLogin().click()
-        self.getLogger().debug("Check if the loginPage has name visible")
-        assert SignUp.SuccessfulLogin().is_displayed(), "Email is invalid"
-        self.getLogger().info("THis message is to notify that the test has just been ended")
-
-    def test_login_invalid_credentials(self):
-        self.getLogger().info("THis message is to notify that the test has just been started")
-        self.getLogger().debug("Initializing HomePage and SignUpLoginPage objects with driver")
-        homepage = HomePage(self.driver)
-        SignUp = SignUpLoginPage(self.driver)
-
-        self.getLogger().debug("Navigating to homepage")
-        homepage.NavSignUP_Login().click()
-        self.wait()
-        SignUp.LogEmail().send_keys("MurSyu@gmail.com")
-        SignUp.LogPassword().send_keys("@123QWea")
-        SignUp.clickLogin().click()
-
-        self.getLogger().debug("Check if the error message is displayed")
-        assert SignUp.ErrorLogin().is_displayed(), "Email is invalid"
-        self.getLogger().info("THis message is to notify that the test has just been ended")
-
+         self.getLogger().info("THis message is to notify that the test has just been started")
+         self.getLogger().debug("Initializing HomePage and SignUpLoginPage objects with driver")
+         homepage = HomePage(self.driver)
+         SignUp = SignUpLoginPage(self.driver)
+    
+         self.getLogger().debug("Navigating to homepage")
+         homepage.NavSignUP_Login().click()
+         self.wait()
+    
+         SignUp.LogEmail().send_keys("NurSyu@gmail.com")
+         SignUp.LogPassword().send_keys("@123QWea")
+         SignUp.clickLogin().click()
+         self.getLogger().debug("Check if the loginPage has name visible")
+         assert SignUp.SuccessfulLogin().is_displayed(), "Email is invalid"
+         self.getLogger().info("THis message is to notify that the test has just been ended")
+    
+     def test_login_invalid_credentials(self):
+         self.getLogger().info("THis message is to notify that the test has just been started")
+         self.getLogger().debug("Initializing HomePage and SignUpLoginPage objects with driver")
+         homepage = HomePage(self.driver)
+         SignUp = SignUpLoginPage(self.driver)
+    
+         self.getLogger().debug("Navigating to homepage")
+         homepage.NavSignUP_Login().click()
+         self.wait()
+         SignUp.LogEmail().send_keys("MurSyu@gmail.com")
+         SignUp.LogPassword().send_keys("@123QWea")
+         SignUp.clickLogin().click()
+    
+         self.getLogger().debug("Check if the error message is displayed")
+         assert SignUp.ErrorLogin().is_displayed(), "Email is invalid"
+         self.getLogger().info("THis message is to notify that the test has just been ended")
+    """
     def test_existing_email_register(self):
         homepage = HomePage(self.driver)
         SignUp = SignUpLoginPage(self.driver)

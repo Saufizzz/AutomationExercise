@@ -8,7 +8,7 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def setup_and_teardown(request):
     global driver
     browser_name = request.config.getoption("browser_name")
