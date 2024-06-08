@@ -1,0 +1,20 @@
+2024-05-20 04:46:23,610 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been started
+2024-05-20 04:46:29,475 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been ended
+2024-05-20 04:47:27,808 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been started
+2024-05-20 04:53:21,649 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been started
+2024-05-20 04:53:21,651 : DEBUG : test_login_invalid_credentials : Initializing HomePage and SignUpLoginPage objects with driver
+2024-05-20 04:53:21,651 : DEBUG : test_login_invalid_credentials : Navigating to homepage
+2024-05-20 04:56:11,014 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been started
+2024-05-20 04:56:11,019 : DEBUG : test_login_invalid_credentials : Initializing HomePage and SignUpLoginPage objects with driver
+2024-05-20 04:56:11,026 : DEBUG : test_login_invalid_credentials : Navigating to homepage
+2024-05-20 04:56:14,015 : DEBUG : test_login_invalid_credentials : Initializing HomePage and SignUpLoginPage objects with driver
+2024-05-20 04:56:14,081 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been ended
+2024-05-20 05:00:38,877 : INFO : test_login_valid_credentials : THis message is to notify that the test has just been started
+2024-05-20 05:00:38,883 : DEBUG : test_login_valid_credentials : Initializing HomePage and SignUpLoginPage objects with driver
+2024-05-20 05:00:38,888 : DEBUG : test_login_valid_credentials : Navigating to homepage
+2024-05-20 05:01:01,249 : DEBUG : test_login_valid_credentials : Check if the loginPage has name visible
+2024-05-20 05:01:19,696 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been started
+2024-05-20 05:01:19,700 : DEBUG : test_login_invalid_credentials : Initializing HomePage and SignUpLoginPage objects with driver
+2024-05-20 05:01:19,706 : DEBUG : test_login_invalid_credentials : Navigating to homepage
+2024-05-20 05:01:25,309 : DEBUG : test_login_invalid_credentials : Check if the error message is displayed
+2024-05-20 05:01:25,445 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been ended
