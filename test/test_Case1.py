@@ -1,9 +1,12 @@
 import email
+import logging
+import time
 
 import pytest
 
 from PageObjectModel.HomePage import HomePage
-from PageObjectModel.TestCase import TestCasePage
+from PageObjectModel.ProductPage import ProductPage
+from PageObjectModel.CaseTest import CaseTestPage
 from PageObjectModel.SignUpLoginPage import SignUpLoginPage
 from Utilities.BaseClass import BaseClass
 
@@ -117,7 +120,7 @@ class TestCase1(BaseClass):
     def test_verify_test_case_visible(self):
         SignUp = SignUpLoginPage(self.driver)
         homepage = HomePage(self.driver)
-        testcasepage = TestCasePage(self.driver)
+        testcasepage = CaseTestPage(self.driver)
         homepage.NavSignUP_Login().click()
         self.wait()
         SignUp.LogEmail().send_keys("NurSyu@gmail.com")
@@ -131,6 +134,39 @@ class TestCase1(BaseClass):
         elements = testcasepage.TestList()
         for i, element in enumerate(elements, start=1):
             print(f"Element {i} content: {element.text}")
+
+    def test_product(self):
+        product = ProductPage(self.driver)
+        product.NavToProductPage()
+        self.wait()
+        # self.WaitElement(product.waitImageDisplay()).is_displayed()
+        self.ScrollPage()
+        self.wait()
+
+        # get all product elements
+        product_elements = product.DisplayProductNames()
+        self.getLogger().info("this message to ensure the step occurred")
+        # extract and print the text of each product
+        # try:
+        #     # product_elements = self.retry_action()
+        if product_elements is not None:
+            for product_element in product_elements:
+                product_name = product_element.text
+                print(product_name)
+                self.getLogger().debug(f"to ensure all the item is printed {product_name}")
+            self.ScrollAndLoadAllProducts()
+        else:
+            print("No element Found")
+        # except Exception as e:
+        #     print("All attempts failed")
+
+
+
+
+
+
+
+
 
 
 

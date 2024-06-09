@@ -1,5 +1,5 @@
 import inspect
-
+import time
 import pytest
 import logging
 from selenium.webdriver import ActionChains
@@ -10,6 +10,10 @@ from selenium.webdriver.support.ui import Select
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class BaseClass:
+
+    def ScrollPage(self, pixels=500, delay= 10):
+        time.sleep(delay)
+        self.driver.execute_script(f"window.scrollBy(0,{pixels});")
 
     def WaitElement(self,locator):
         WebDriverWait(self.driver,10).until((EC.presence_of_element_located(locator)))
@@ -25,7 +29,7 @@ class BaseClass:
 
 
     def wait(self):
-        return self.driver.implicitly_wait(5)
+        return self.driver.implicitly_wait(10)
 
     def getLogger(self):
         # This line retrieves the name of the calling function.
@@ -49,21 +53,52 @@ class BaseClass:
             logger.addHandler(filehandler)
 
             # Optionally, set the logging level. For example, to DEBUG.
-            logger.setLevel(logging.ERROR)
+            logger.setLevel(logging.DEBUG)
 
         return logger
 
 
-"""
-    def getLogger(self):
-        #This line retrieves the name of the calling function (the function that called the function containing this code). It uses the inspect module to inspect the call stack and retrieves the name of the function at index 1, which is the immediate caller, and then selects the third element of the tuple returned by inspect.stack(), which is the name of the function.
-        loggerName = inspect.stack()[1][3]
-        #This line creates a logger object using the name of the calling function obtained in the previous line. It uses the getLogger function from the logging module to get or create a logger with the specified name.
-        logger = logging.getLogger(loggerName)
-        #This line creates a FileHandler object named filehandler, which will be responsible for writing log records to a file named "logfile.log".
-        filehandler = logging.FileHandler("logfile.log")
-        #This line creates a Formatter object named formatter with a specified format. The format string "%(asctime)s : %(levelname)s : %(name)s : %(message)s" specifies the format for log records. It includes placeholders like %(asctime)s for the time of the log message, %(levelname)s for the log level, %(name)s for the logger name, and %(message)s for the log message itself.
-        formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
-        #This line sets the formatter (formatter) created in the previous line to the FileHandler object (filehandler). This ensures that log records written by this handler will be formatted according to the specified format
-        filehandler.setFormatter(formatter)
-"""
+
+    # def getLogger(self):
+    #     #This line retrieves the name of the calling function (the function that called the function containing this code). It uses the inspect module to inspect the call stack and retrieves the name of the function at index 1, which is the immediate caller, and then selects the third element of the tuple returned by inspect.stack(), which is the name of the function.
+    #     loggerName = inspect.stack()[1][3]
+    #     #This line creates a logger object using the name of the calling function obtained in the previous line. It uses the getLogger function from the logging module to get or create a logger with the specified name.
+    #     logger = logging.getLogger(loggerName)
+    #     #This line creates a FileHandler object named filehandler, which will be responsible for writing log records to a file named "logfile.log".
+    #     filehandler = logging.FileHandler("logfile.log")
+    #     #This line creates a Formatter object named formatter with a specified format. The format string "%(asctime)s : %(levelname)s : %(name)s : %(message)s" specifies the format for log records. It includes placeholders like %(asctime)s for the time of the log message, %(levelname)s for the log level, %(name)s for the logger name, and %(message)s for the log message itself.
+    #     formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
+    #     #This line sets the formatter (formatter) created in the previous line to the FileHandler object (filehandler). This ensures that log records written by this handler will be formatted according to the specified format
+    #     filehandler.setFormatter(formatter)
+
+
+
+    def ScrollAndLoadAllProducts(self):
+        SCROLL_PAUSE_TIME = 1  # Adjust this pause time as necessary
+        last_height = self.driver.execute_script("return document.body.scrollHeight")
+
+        while True:
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(SCROLL_PAUSE_TIME)
+
+            new_height = self.driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
+
+    def retry_action(action, max_attempts=3, delay=1):
+        attempts = 0
+        while attempts < max_attempts:
+            try:
+                # Attempt the action
+                result = action()
+                return result  # Return the result if successful
+            except Exception as e:
+                # Handle the exception (or you can just pass)
+                print(f"Attempt {attempts + 1} failed:", e)
+                # Increment attempts counter
+                attempts += 1
+                # Wait for a short delay before retrying
+                time.sleep(delay)
+        # If max_attempts reached without success, raise an exception
+        raise Exception("Max attempts reached without success")

@@ -18,3 +18,210 @@
 2024-05-20 05:01:19,706 : DEBUG : test_login_invalid_credentials : Navigating to homepage
 2024-05-20 05:01:25,309 : DEBUG : test_login_invalid_credentials : Check if the error message is displayed
 2024-05-20 05:01:25,445 : INFO : test_login_invalid_credentials : THis message is to notify that the test has just been ended
+2024-06-09 23:41:17,744 : INFO : test_product : this message to ensure the step occurred
+2024-06-09 23:41:17,757 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,767 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,776 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,787 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,796 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,804 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,814 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,823 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,836 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,844 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,853 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,862 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,871 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,881 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,890 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,898 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,906 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,917 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,924 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,935 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,943 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,953 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,961 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,971 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,980 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:17,989 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,000 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,008 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,018 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,027 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,036 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,045 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,054 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,064 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,072 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,081 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,090 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,100 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,109 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,118 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,127 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,136 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,150 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,159 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,168 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,175 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,184 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,193 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,201 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,209 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,218 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,226 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,234 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,242 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,250 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,258 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,267 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,275 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,284 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,292 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,301 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,308 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,318 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,326 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,335 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,343 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,352 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:41:18,360 : DEBUG : test_product : to ensure all the item is printed
+2024-06-09 23:45:27,162 : INFO : test_product : this message to ensure the step occurred
+2024-06-09 23:45:27,220 : DEBUG : test_product : to ensure all the item is printed Blue Top
+2024-06-09 23:45:27,229 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,237 : DEBUG : test_product : to ensure all the item is printed Men Tshirt
+2024-06-09 23:45:27,246 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,255 : DEBUG : test_product : to ensure all the item is printed Sleeveless Dress
+2024-06-09 23:45:27,264 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,274 : DEBUG : test_product : to ensure all the item is printed Stylish Dress
+2024-06-09 23:45:27,282 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,293 : DEBUG : test_product : to ensure all the item is printed Winter Top
+2024-06-09 23:45:27,301 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,310 : DEBUG : test_product : to ensure all the item is printed Summer White Top
+2024-06-09 23:45:27,318 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,329 : DEBUG : test_product : to ensure all the item is printed Madame Top For Women
+2024-06-09 23:45:27,337 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,346 : DEBUG : test_product : to ensure all the item is printed Fancy Green Top
+2024-06-09 23:45:27,353 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,361 : DEBUG : test_product : to ensure all the item is printed Sleeves Printed Top - White
+2024-06-09 23:45:27,370 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,378 : DEBUG : test_product : to ensure all the item is printed Half Sleeves Top Schiffli Detailing - Pink
+2024-06-09 23:45:27,386 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,394 : DEBUG : test_product : to ensure all the item is printed Frozen Tops For Kids
+2024-06-09 23:45:27,401 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,410 : DEBUG : test_product : to ensure all the item is printed Full Sleeves Top Cherry - Pink
+2024-06-09 23:45:27,418 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,426 : DEBUG : test_product : to ensure all the item is printed Printed Off Shoulder Top - White
+2024-06-09 23:45:27,434 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,443 : DEBUG : test_product : to ensure all the item is printed Sleeves Top and Short - Blue & Pink
+2024-06-09 23:45:27,451 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,460 : DEBUG : test_product : to ensure all the item is printed Little Girls Mr. Panda Shirt
+2024-06-09 23:45:27,467 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,476 : DEBUG : test_product : to ensure all the item is printed Sleeveless Unicorn Patch Gown - Pink
+2024-06-09 23:45:27,483 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,492 : DEBUG : test_product : to ensure all the item is printed Cotton Mull Embroidered Dress
+2024-06-09 23:45:27,500 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,510 : DEBUG : test_product : to ensure all the item is printed Blue Cotton Indie Mickey Dress
+2024-06-09 23:45:27,517 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,527 : DEBUG : test_product : to ensure all the item is printed Long Maxi Tulle Fancy Dress Up Outfits -Pink
+2024-06-09 23:45:27,536 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,546 : DEBUG : test_product : to ensure all the item is printed Sleeveless Unicorn Print Fit & Flare Net Dress - Multi
+2024-06-09 23:45:27,555 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,564 : DEBUG : test_product : to ensure all the item is printed Colour Blocked Shirt – Sky Blue
+2024-06-09 23:45:27,572 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,587 : DEBUG : test_product : to ensure all the item is printed Pure Cotton V-Neck T-Shirt
+2024-06-09 23:45:27,595 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,603 : DEBUG : test_product : to ensure all the item is printed Green Side Placket Detail T-Shirt
+2024-06-09 23:45:27,611 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,619 : DEBUG : test_product : to ensure all the item is printed Premium Polo T-Shirts
+2024-06-09 23:45:27,627 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,636 : DEBUG : test_product : to ensure all the item is printed Pure Cotton Neon Green Tshirt
+2024-06-09 23:45:27,644 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,652 : DEBUG : test_product : to ensure all the item is printed Soft Stretch Jeans
+2024-06-09 23:45:27,660 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,668 : DEBUG : test_product : to ensure all the item is printed Regular Fit Straight Jeans
+2024-06-09 23:45:27,677 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,685 : DEBUG : test_product : to ensure all the item is printed Grunt Blue Slim Fit Jeans
+2024-06-09 23:45:27,694 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,703 : DEBUG : test_product : to ensure all the item is printed Rose Pink Embroidered Maxi Dress
+2024-06-09 23:45:27,711 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,719 : DEBUG : test_product : to ensure all the item is printed Cotton Silk Hand Block Print Saree
+2024-06-09 23:45:27,728 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,736 : DEBUG : test_product : to ensure all the item is printed Rust Red Linen Saree
+2024-06-09 23:45:27,744 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,753 : DEBUG : test_product : to ensure all the item is printed Beautiful Peacock Blue Cotton Linen Saree
+2024-06-09 23:45:27,761 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,769 : DEBUG : test_product : to ensure all the item is printed Lace Top For Women
+2024-06-09 23:45:27,777 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:45:27,785 : DEBUG : test_product : to ensure all the item is printed GRAPHIC DESIGN MEN T SHIRT - BLUE
+2024-06-09 23:45:27,794 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:56,986 : INFO : test_product : this message to ensure the step occurred
+2024-06-09 23:49:57,001 : DEBUG : test_product : to ensure all the item is printed Blue Top
+2024-06-09 23:49:57,010 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,019 : DEBUG : test_product : to ensure all the item is printed Men Tshirt
+2024-06-09 23:49:57,028 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,037 : DEBUG : test_product : to ensure all the item is printed Sleeveless Dress
+2024-06-09 23:49:57,046 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,056 : DEBUG : test_product : to ensure all the item is printed Stylish Dress
+2024-06-09 23:49:57,067 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,078 : DEBUG : test_product : to ensure all the item is printed Winter Top
+2024-06-09 23:49:57,088 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,096 : DEBUG : test_product : to ensure all the item is printed Summer White Top
+2024-06-09 23:49:57,104 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,113 : DEBUG : test_product : to ensure all the item is printed Madame Top For Women
+2024-06-09 23:49:57,121 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,129 : DEBUG : test_product : to ensure all the item is printed Fancy Green Top
+2024-06-09 23:49:57,138 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,148 : DEBUG : test_product : to ensure all the item is printed Sleeves Printed Top - White
+2024-06-09 23:49:57,156 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,165 : DEBUG : test_product : to ensure all the item is printed Half Sleeves Top Schiffli Detailing - Pink
+2024-06-09 23:49:57,173 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,182 : DEBUG : test_product : to ensure all the item is printed Frozen Tops For Kids
+2024-06-09 23:49:57,189 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,198 : DEBUG : test_product : to ensure all the item is printed Full Sleeves Top Cherry - Pink
+2024-06-09 23:49:57,206 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,215 : DEBUG : test_product : to ensure all the item is printed Printed Off Shoulder Top - White
+2024-06-09 23:49:57,223 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,231 : DEBUG : test_product : to ensure all the item is printed Sleeves Top and Short - Blue & Pink
+2024-06-09 23:49:57,239 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,248 : DEBUG : test_product : to ensure all the item is printed Little Girls Mr. Panda Shirt
+2024-06-09 23:49:57,257 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,265 : DEBUG : test_product : to ensure all the item is printed Sleeveless Unicorn Patch Gown - Pink
+2024-06-09 23:49:57,276 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,291 : DEBUG : test_product : to ensure all the item is printed Cotton Mull Embroidered Dress
+2024-06-09 23:49:57,299 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,307 : DEBUG : test_product : to ensure all the item is printed Blue Cotton Indie Mickey Dress
+2024-06-09 23:49:57,316 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,324 : DEBUG : test_product : to ensure all the item is printed Long Maxi Tulle Fancy Dress Up Outfits -Pink
+2024-06-09 23:49:57,333 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,342 : DEBUG : test_product : to ensure all the item is printed Sleeveless Unicorn Print Fit & Flare Net Dress - Multi
+2024-06-09 23:49:57,350 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,357 : DEBUG : test_product : to ensure all the item is printed Colour Blocked Shirt – Sky Blue
+2024-06-09 23:49:57,366 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,380 : DEBUG : test_product : to ensure all the item is printed Pure Cotton V-Neck T-Shirt
+2024-06-09 23:49:57,389 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,398 : DEBUG : test_product : to ensure all the item is printed Green Side Placket Detail T-Shirt
+2024-06-09 23:49:57,406 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,414 : DEBUG : test_product : to ensure all the item is printed Premium Polo T-Shirts
+2024-06-09 23:49:57,422 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,431 : DEBUG : test_product : to ensure all the item is printed Pure Cotton Neon Green Tshirt
+2024-06-09 23:49:57,439 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,448 : DEBUG : test_product : to ensure all the item is printed Soft Stretch Jeans
+2024-06-09 23:49:57,455 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,464 : DEBUG : test_product : to ensure all the item is printed Regular Fit Straight Jeans
+2024-06-09 23:49:57,471 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,480 : DEBUG : test_product : to ensure all the item is printed Grunt Blue Slim Fit Jeans
+2024-06-09 23:49:57,488 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,496 : DEBUG : test_product : to ensure all the item is printed Rose Pink Embroidered Maxi Dress
+2024-06-09 23:49:57,504 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,513 : DEBUG : test_product : to ensure all the item is printed Cotton Silk Hand Block Print Saree
+2024-06-09 23:49:57,521 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,529 : DEBUG : test_product : to ensure all the item is printed Rust Red Linen Saree
+2024-06-09 23:49:57,539 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,548 : DEBUG : test_product : to ensure all the item is printed Beautiful Peacock Blue Cotton Linen Saree
+2024-06-09 23:49:57,558 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,568 : DEBUG : test_product : to ensure all the item is printed Lace Top For Women
+2024-06-09 23:49:57,576 : DEBUG : test_product : to ensure all the item is printed 
+2024-06-09 23:49:57,586 : DEBUG : test_product : to ensure all the item is printed GRAPHIC DESIGN MEN T SHIRT - BLUE
+2024-06-09 23:49:57,593 : DEBUG : test_product : to ensure all the item is printed 
