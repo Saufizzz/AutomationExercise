@@ -1,6 +1,4 @@
-import email
-import logging
-import time
+import requests
 
 import pytest
 
@@ -9,6 +7,8 @@ from PageObjectModel.ProductPage import ProductPage
 from PageObjectModel.CaseTest import CaseTestPage
 from PageObjectModel.SignUpLoginPage import SignUpLoginPage
 from Utilities.BaseClass import BaseClass
+from Utilities.api_helper import create_user, delete_user
+
 
 #This testcase is about registering new user id to the website, login and delete the account
 class TestCase1(BaseClass):
@@ -18,6 +18,12 @@ class TestCase1(BaseClass):
          )
     ])
     def test_register(self, name, email, password, days, month, year, FirstName, LastName, CompanyName, Address1, Address2, Country, State, City,ZipCode,PhoneNum):
+        # Call the API to create the user first
+        api_response = create_user(name, email, password)
+        assert api_response.status_code == 201, "User creation failed via API"
+
+
+
         homepage = HomePage(self.driver)
         assert homepage.Image().is_displayed,"Wrong URl"
         homepage.NavSignUP_Login().click()
@@ -52,6 +58,11 @@ class TestCase1(BaseClass):
         homepage.ClickDelAcc().click()
         assert homepage.AccDeleted().is_displayed(), "Wrong click"
         SignUp.ClickContinue().click()
+
+        # Clean up by deleting the user via API
+        user_id = api_response.json().get('id')
+        delete_response = delete_user(user_id)
+        assert delete_response.status_code == 200, "Failed to delete user via API"
 
     @pytest.mark.parametrize(
         "email ,password,is_valid", [
