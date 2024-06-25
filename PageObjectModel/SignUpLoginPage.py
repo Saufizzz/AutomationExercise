@@ -60,11 +60,18 @@ class SignUpLoginPage:
     def SignUpTxt(self):
         return self.driver.find_element(*SignUpLoginPage.NewUserSignUp)
 
-    def SelectTitle(self):
-        if "Muhammad" in SignUpLoginPage.name:
-            return self.driver.find_element(*SignUpLoginPage.MrTitle)
-        elif "Nur" in SignUpLoginPage.name:
-            return self.driver.find_element(*SignUpLoginPage.MrsTitle)
+    def selectMrtitle(self):
+        return self.driver.find_element(*SignUpLoginPage.MrTitle)
+
+    def selectMrstitle(self):
+        return self.driver.find_element(*SignUpLoginPage.MrsTitle)
+    # def SelectTitle(self):
+    #     if "Muhammad" in SignUpLoginPage.name:
+    #          return self.driver.find_element(*SignUpLoginPage.MrTitle)
+    #     elif "Nur" in SignUpLoginPage.name:
+    #          return self.driver.find_element(*SignUpLoginPage.MrsTitle)
+    #     else:
+    #         return self.driver.find_element(*SignUpLoginPage.MrTitle)
 
     def AccText(self):
         return self.driver.find_element(*SignUpLoginPage.AccountText)

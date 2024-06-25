@@ -7,25 +7,63 @@ from PageObjectModel.ProductPage import ProductPage
 from PageObjectModel.CaseTest import CaseTestPage
 from PageObjectModel.SignUpLoginPage import SignUpLoginPage
 from Utilities.BaseClass import BaseClass
-from Utilities.api_helper import create_user, delete_user
-
+from Utilities.api_helper import APIHelper
 
 #This testcase is about registering new user id to the website, login and delete the account
 class TestCase1(BaseClass):
-    @pytest.mark.parametrize("name,email,password,days,month,year,FirstName,LastName, CompanyName, Address1,Address2,Country,State,City,ZipCode,PhoneNum",
+
+    @pytest.mark.parametrize("name, email, password, title, birth_date, birth_month, birth_year, firstname, lastname, company, address1, address2, country, zipcode, state, city, mobile_number",
     [
-        ("Shahmi", "shahmi@gmail.com", "@123QWea", "23", "December", "1978", "Shahmi", "Shaharudin", "APM", "12 TUAS WEST ROAD", "#07-06 PARKWAY PARADE", "Singapore", "Woodlands", "Singapura", "638378", "01190998765"
+        ("imam2", "imam14@gmail.com", "@123QWea","Mr", "23", "December", "1978", "jambu1", "jambu2", "APM", "12 TUAS WEST ROAD", "#07-06 PARKWAY PARADE", "Singapore", "Woodlands", "Singapura", "638378", "01190998765"
          )
     ])
-    def test_register(self, name, email, password, days, month, year, FirstName, LastName, CompanyName, Address1, Address2, Country, State, City,ZipCode,PhoneNum):
-        # Call the API to create the user first
-        api_response = create_user(name, email, password)
-        assert api_response.status_code == 201, "User creation failed via API"
+    def test_register(self, name, email, password, title, birth_date, birth_month, birth_year, firstname, lastname, company, address1, address2, country, zipcode, state, city, mobile_number):
+        # # Call the API to create the user first
+        # api_helper = APIHelper()
+        # api_response, json_response = api_helper.create_account(name, email, password, title, birth_date, birth_month,
+        #                                                         birth_year, firstname, lastname, company, address1,
+        #                                                         address2, country, zipcode, state, city, mobile_number)
+        #
+        # # Check if user creation via API was successful
+        # assert api_response is not None, "Failed to connect to API"
+        #
+        # # Validate JSON response
+        # print(json_response)
+        # assert json_response.get(
+        #     'responseCode') == 201, f"Expected responseCode 201, but got {json_response.get('responseCode')}"
+        # assert json_response.get(
+        #     'message') == "User created!", f"Expected message 'User created!', but got {json_response.get('message')}"
+        #
+        # # Extract JSON response
+        # try:
+        #     json_response = api_response.json()
+        # except ValueError:
+        #     pytest.fail("Response is not in JSON format")
+        #
+        #
+        # #delete user
+        # delete_response,json_delete_response = api_helper.delete_user(email, password)
+        # # Check if user creation via API was successful
+        # assert delete_response is not None, "Failed to connect to API"
+        #
+        # # Validate JSON response
+        # print(json_delete_response)
+        # assert json_delete_response.get(
+        #     'responseCode') == 200, f"Expected responseCode 200, but got {json_delete_response.get('responseCode')}"
+        # assert json_delete_response.get(
+        #     'message') == "User created!", f"Expected message 'User created!', but got {json_delete_response.get('message')}"
+        #
+        # # Extract JSON response
+        # try:
+        #     json_delete_response = delete_response.json()
+        # except ValueError:
+        #     pytest.fail("Response is not in JSON format")
 
 
 
+        # Proceed with UI testing
         homepage = HomePage(self.driver)
-        assert homepage.Image().is_displayed,"Wrong URl"
+        assert homepage.Image().is_displayed(), "Wrong URL"
         homepage.NavSignUP_Login().click()
         self.wait()
         SignUp = SignUpLoginPage(self.driver)
@@ -34,36 +72,34 @@ class TestCase1(BaseClass):
         SignUp.SignUpInsEmail().send_keys(email)
         SignUp.ClickSignUp()
         self.wait()
-        SignUp.SelectTitle().click()
+        if title == "Mr":
+            SignUp.selectMrtitle().click()
+        elif title == "Mrs":
+            SignUp.selectMrstitle().click()
+
         SignUp.InsPassword().send_keys(password)
-        SignUp.DateDays().send_keys(days)
-        SignUp.DateMonth().send_keys(month)
-        SignUp.DateYear().send_keys(year)
+        SignUp.DateDays().send_keys(birth_date)
+        SignUp.DateMonth().send_keys(birth_month)
+        SignUp.DateYear().send_keys(birth_year)
         SignUp.ClickNews().click()
         SignUp.ClickOffer().click()
-        SignUp.InsFirstName().send_keys(FirstName)
-        SignUp.InsLastName().send_keys(LastName)
-        SignUp.InsCompanyName().send_keys(CompanyName)
-        SignUp.InsAddress1().send_keys(Address1)
-        SignUp.InsAddress2().send_keys(Address2)
-        self.selectByText(SignUp.SelCountry(), Country)
-        SignUp.InsState().send_keys(State)
-        SignUp.InsCity().send_keys(City)
-        SignUp.InsZipCode().send_keys(ZipCode)
-        SignUp.InsMobileNum().send_keys(PhoneNum)
+        SignUp.InsFirstName().send_keys(firstname)
+        SignUp.InsLastName().send_keys(lastname)
+        SignUp.InsCompanyName().send_keys(company)
+        SignUp.InsAddress1().send_keys(address1)
+        SignUp.InsAddress2().send_keys(address2)
+        self.selectByText(SignUp.SelCountry(), country)
+        SignUp.InsState().send_keys(state)
+        SignUp.InsCity().send_keys(city)
+        SignUp.InsZipCode().send_keys(zipcode)
+        SignUp.InsMobileNum().send_keys(mobile_number)
         SignUp.ClickCreateAcc().click()
-        assert SignUp.AccCreatedText().is_displayed(), "Account Has not been created"
+        assert SignUp.AccCreatedText().is_displayed(), "Account has not been created"
         SignUp.ClickContinue().click()
-        assert homepage.ClickDelAcc().is_displayed(),"not returning to homepage"
+        assert homepage.ClickDelAcc().is_displayed(), "Not returning to homepage"
         homepage.ClickDelAcc().click()
         assert homepage.AccDeleted().is_displayed(), "Wrong click"
         SignUp.ClickContinue().click()
-
-        # Clean up by deleting the user via API
-        user_id = api_response.json().get('id')
-        delete_response = delete_user(user_id)
-        assert delete_response.status_code == 200, "Failed to delete user via API"
-
     @pytest.mark.parametrize(
         "email ,password,is_valid", [
         ("NurSyu@gmail.com", "@123QWea", True),

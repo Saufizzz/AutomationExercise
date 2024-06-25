@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 driver = None
+base_url = "https://automationexercise.com/"
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -21,7 +22,7 @@ def setup_and_teardown(request):
     elif browser_name == "Safari":
         driver = webdriver.Safari()
 
-    driver.get("https://automationexercise.com/")
+    driver.get(base_url)
     driver.maximize_window()
     request.cls.driver = driver
     yield
