@@ -61,7 +61,7 @@ class TestCase1(BaseClass):
 
 
 
-        # Proceed with UI testing
+        # Proceed with UI_testing
         homepage = HomePage(self.driver)
         assert homepage.Image().is_displayed(), "Wrong URL"
         homepage.NavSignUP_Login().click()

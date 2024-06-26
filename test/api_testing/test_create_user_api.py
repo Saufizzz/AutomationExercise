@@ -3,11 +3,11 @@ import pytest
 from Utilities.api_helper import APIHelper
 
 
-class APITesting:
+class TestCreateAPI:
     @pytest.mark.parametrize(
         "name, email, password, title, birth_date, birth_month, birth_year, firstname, lastname, company, address1, address2, country, zipcode, state, city, mobile_number",
         [
-            ("imam2", "imam14@gmail.com", "@123QWea", "Mr", "23", "December", "1978", "jambu1", "jambu2", "APM",
+            ("imam2", "imam15@gmail.com", "@123QWea", "Mr", "23", "December", "1978", "jambu1", "jambu2", "APM",
              "12 TUAS WEST ROAD", "#07-06 PARKWAY PARADE", "Singapore", "Woodlands", "Singapura", "638378",
              "01190998765"
              )
@@ -33,8 +33,8 @@ class APITesting:
             pytest.fail("Response is not in JSON format")
 
     @pytest.mark.parametrize(
-        "email, password"[
-            ("imam14@gmail.com", "@123QWea")
+        "email ,password",[
+            ("imam15@gmail.com","@123QWea")
         ])
     def test_delete_api(self,email,password):
         api_helper = APIHelper()
@@ -45,10 +45,10 @@ class APITesting:
 
         # Validate JSON response
         print(json_delete_response)
-        assert json_delete_response.get(
-            'responseCode') == 200, f"Expected responseCode 200, but got {json_delete_response.get('responseCode')}"
-        assert json_delete_response.get(
-            'message') == "User created!", f"Expected message 'User created!', but got {json_delete_response.get('message')}"
+        assert json_delete_response[
+                   'responseCode'] == 200, f"Expected response Code 200, but got {json_delete_response['responseCode']}"
+        assert json_delete_response[
+                   'message'] == "Account deleted!", f"Expected message 'Account deleted!, but got {delete_response['message']}"
 
         # Extract JSON response
         try:
