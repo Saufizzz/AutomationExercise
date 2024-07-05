@@ -1,5 +1,7 @@
 import inspect
 import time
+
+import openpyxl
 import pytest
 import logging
 from selenium.webdriver import ActionChains
@@ -15,8 +17,11 @@ class BaseClass:
         time.sleep(delay)
         self.driver.execute_script(f"window.scrollBy(0,{pixels});")
 
-    def WaitElement(self,locator):
-        WebDriverWait(self.driver,10).until((EC.presence_of_element_located(locator)))
+    def WaitElementPresent(self,locator):
+        WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+
+    def WaitElementClickable(self,locator):
+        WebDriverWait(self.driver,10).until(EC.element_to_be_clickable(locator))
 
     def ActionMove(self,locator1):
         return ActionChains(self.driver).move_to_element(locator1)
@@ -74,7 +79,7 @@ class BaseClass:
 
 
     def ScrollAndLoadAllProducts(self):
-        SCROLL_PAUSE_TIME = 1  # Adjust this pause time as necessary
+        SCROLL_PAUSE_TIME = 3  # Adjust this pause time as necessary
         last_height = self.driver.execute_script("return document.body.scrollHeight")
 
         while True:
@@ -102,3 +107,27 @@ class BaseClass:
                 time.sleep(delay)
         # If max_attempts reached without success, raise an exception
         raise Exception("Max attempts reached without success")
+
+    import openpyxl
+
+    def read_excel(file_path, sheet_name):
+        # Load the workbook (Excel file) from the specified file path
+        workbook = openpyxl.load_workbook(file_path)
+        # Select the sheet within the workbook based on the provided sheet name
+        sheet = workbook[sheet_name]
+
+        # Read the header row (first row) of the Excel sheet
+        headers = [sheet.cell(row=1, column=col).value for col in range(1, sheet.max_column + 1)]
+        # Initialize an empty list to store the data rows
+        data = []
+
+        # Loop through each row in the sheet starting from the second row to the last row
+        for row in range(2, sheet.max_row + 1):
+            # Create a tuple containing the values of each cell in the current row
+            values = tuple(sheet.cell(row=row, column=col).value for col in range(1, sheet.max_column + 1))
+            # Append the tuple of values to the data list
+            data.append(values)
+
+        # Return the headers and the data
+        return headers, data
+

@@ -1,3 +1,5 @@
+import time
+
 import requests
 
 import pytest
@@ -63,10 +65,11 @@ class TestCase1(BaseClass):
 
         # Proceed with UI_testing
         homepage = HomePage(self.driver)
+        SignUp = SignUpLoginPage(self.driver)
         assert homepage.Image().is_displayed(), "Wrong URL"
         homepage.NavSignUP_Login().click()
-        self.wait()
-        SignUp = SignUpLoginPage(self.driver)
+        self.WaitElementPresent(SignUp.NewUserSignUp)
+
         assert SignUp.SignUpTxt().is_displayed(), "Wrong Page"
         SignUp.SignUpInsName().send_keys(name)
         SignUp.SignUpInsEmail().send_keys(email)
@@ -200,39 +203,95 @@ class TestCase1(BaseClass):
         product_item = []
         product_elements = product.DisplayProductNames()
         self.getLogger().info("this message to ensure the step occurred")
-        # extract and print the text of each product
-        # try:
-        #     # product_elements = self.retry_action()
-        if product_elements is not None:
-            for product_element in product_elements:
-                product_name = product_element.text
 
-                #print(product_name)
+        if product_elements is not None:
+            for i, product_element in enumerate(product_elements, start=1):
+                product_name = product_element.text
                 product_item.append(product_name)
-                #self.getLogger().debug(f"to ensure all the item is printed {product_name}")
+
+                if i == 3:  # Only click if i is 3
+                    view_product_element = self.page.clickViewProduct(i)
+                    view_product_element.click()
+                    break  # Exit the loop after clicking the third product
+
+                print(f"Iteration {i}: No action needed")
+
             self.ScrollAndLoadAllProducts()
             print(product_item, flush=True)
         else:
             print("No element Found")
-        # except Exception as e:
-        #     print("All attempts failed")
+
+        # Reset scroll position
         self.driver.execute_script("window.scrollTo(0, 0);")
 
-        # Iterate over a range of 1 to 34
-        for i in range(1, 35):
-            # Ensure all products are loaded
-            self.page.ScrollAndLoadAllProducts()
+        # extract and print the text of each product
+        # try:
+        #     # product_elements = self.retry_action()
+        # if product_elements is not None:
+        #     for product_element in product_elements:
+        #         product_name = product_element.text
+        #
+        #         #print(product_name)
+        #         product_item.append(product_name)
+        #         #self.getLogger().debug(f"to ensure all the item is printed {product_name}")
+        #     self.ScrollAndLoadAllProducts()
+        #     print(product_item, flush=True)
+        # else:
+        #     print("No element Found")
+        # # except Exception as e:
+        # #     print("All attempts failed")
+        # self.driver.execute_script("window.scrollTo(0, 0);")
+        #
+        # # Iterate over a range of 1 to 34
+        # for i in range(1, 35):
+        #     # Ensure all products are loaded
+        #     self.page.ScrollAndLoadAllProducts()
+        #
+        #     if i == 3:  # Only click if i is 3
+        #         # Find and click the view product element
+        #         view_product_element = self.page.clickViewProduct(i)
+        #         view_product_element.click()
+        #         break  # Exit the loop after clicking the third product
+        #     else:
+        #         print(f"Iteration {i}: No action needed")
+        #
+        # # Assert that the product image is displayed after the click
+        # assert product.DisplayViewProductImg().is_displayed(), "Product image is not displayed"
 
-            if i == 3:  # Only click if i is 3
-                # Find and click the view product element
-                view_product_element = self.page.clickViewProduct(i)
-                view_product_element.click()
-                break  # Exit the loop after clicking the third product
-            else:
-                print(f"Iteration {i}: No action needed")
 
-        # Assert that the product image is displayed after the click
-        assert product.DisplayViewProductImg().is_displayed(), "Product image is not displayed"
+    def test_searchProduct(self):
+        product = ProductPage(self.driver)
+        product.NavToProductPage()
+        self.WaitElementPresent(product.Img)
+        assert product.waitImageDisplay().is_displayed(), "wrong page"
+        product.InputSearch().send_keys("Men")
+        product.ClickSearchBtn()
+        self.ScrollAndLoadAllProducts()
+
+        # Add to cart all the search displayed.
+        CartItem = []
+        productCarts = product.DisplayProductCart()
+        productnames = product.DisplayProductNames()
+        if productCarts is not None:
+            for productCart, productname in zip(productCarts, productnames):
+                self.ActionMove(product.NavOverlayContent()).perform()
+                self.WaitElementPresent(product.overlayContent)
+                product_name = productname.text
+                CartItem.append(product_name)
+                print(f"Product Name: {product_name}")
+                self.WaitElementClickable(product.AddtoCart)
+                productCart.click()
+                product.ClickContinueShoppingBtn()
+                self.ScrollAndLoadAllProducts()
+
+        else:
+            print("No element was found")
+
+
+
+
+
+
 
 
 
