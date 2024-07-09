@@ -13,7 +13,7 @@ class ProductPage:
     AddtoCart = (By.XPATH,"//div[@class='col-sm-9 padding-right']//div//div[1]//div[1]//div[2]//div[1]//a[1]")
     TextAfterAddtoCart = (By.XPATH,"//p[normalize-space()='Your product has been added to cart.']")
     ContinueShoppingbtn = (By.XPATH,"//button[normalize-space()='Continue Shopping']")
-    overlayContent = (By.XPATH,"//div[@class='overlay-content']")
+    overlayContent = (By.XPATH,"//div[@class='product-overlay']")
 
     def __init__(self,driver):
         self.driver = driver
@@ -29,12 +29,12 @@ class ProductPage:
         return self.driver.find_elements(*ProductPage.ListWomenItem)
 
     def DisplayProductNames(self):
-        product_names_xpath = "//div[@class='overlay-content']/p"
+        product_names_xpath = "//div[@class='productinfo text-center']/p"
         product_elements = self.driver.find_elements(By.XPATH, product_names_xpath)
         return product_elements
 
     def DisplayProductCart(self):
-        product_CartBtn_XPATH = "//div[@class='overlay-content']/a"
+        product_CartBtn_XPATH = "//div[@class='productinfo text-center']/a"
         product_CartBtn = self.driver.find_elements(By.XPATH, product_CartBtn_XPATH)
         return product_CartBtn
 

@@ -274,13 +274,13 @@ class TestCase1(BaseClass):
         productnames = product.DisplayProductNames()
         if productCarts is not None:
             for productCart, productname in zip(productCarts, productnames):
-                self.ActionMove(product.NavOverlayContent()).perform()
-                self.WaitElementPresent(product.overlayContent)
+                # self.ActionMove(product.NavOverlayContent()).perform()
+                # self.WaitElementPresent(product.overlayContent)
                 product_name = productname.text
                 CartItem.append(product_name)
                 print(f"Product Name: {product_name}")
-                self.WaitElementClickable(product.AddtoCart)
                 productCart.click()
+                self.wait()
                 product.ClickContinueShoppingBtn()
                 self.ScrollAndLoadAllProducts()
 

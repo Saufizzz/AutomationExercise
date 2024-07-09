@@ -1,9 +1,11 @@
 import inspect
+import os #Imports the os module, which provides functions for interacting with the operating system
+import tempfile #Imports the tempfile module, which is used to create temporary files.
 import time
-
 import openpyxl
 import pytest
 import logging
+from openpyxl.workbook import Workbook #Imports the Workbook class from the openpyxl library, which is used to create and manipulate Excel files.
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -108,7 +110,7 @@ class BaseClass:
         # If max_attempts reached without success, raise an exception
         raise Exception("Max attempts reached without success")
 
-    import openpyxl
+
 
     def read_excel(file_path, sheet_name):
         # Load the workbook (Excel file) from the specified file path
@@ -130,4 +132,19 @@ class BaseClass:
 
         # Return the headers and the data
         return headers, data
+
+    # Fixture to create an in-memory Excel file
+    @pytest.fixture
+    def excel_file(self):
+        wb = Workbook() # Create a new workbook object
+        ws = wb.active # Get the active worksheet (default sheet)
+        ws.title = "SampleData" # Set the title of the worksheet
+        ws.append(["Column1", "Column2", "Column3"])  # Add a header row with column names
+        ws.append(["Data1", "Data2", "Data3"])  # Add a data row
+        # You can add more rows as needed using ws.append([...])
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") # Create a temporary file with .xlsx extension
+        wb.save(temp_file.name) # Save the workbook to the temporary file
+        yield temp_file.name # Yield the temporary file's name for use in tests
+        os.remove(temp_file.name) # Remove the temporary file after the test
+        # when want to run the test, include excel_file as argument. e.g (self,excel_file)
 
