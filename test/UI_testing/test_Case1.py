@@ -4,6 +4,7 @@ import requests
 
 import pytest
 
+from PageObjectModel.CartPage import CartPage
 from PageObjectModel.HomePage import HomePage
 from PageObjectModel.ProductPage import ProductPage
 from PageObjectModel.CaseTest import CaseTestPage
@@ -210,7 +211,7 @@ class TestCase1(BaseClass):
                 product_item.append(product_name)
 
                 if i == 3:  # Only click if i is 3
-                    view_product_element = self.page.clickViewProduct(i)
+                    view_product_element = product.clickViewProduct(i)
                     view_product_element.click()
                     break  # Exit the loop after clicking the third product
 
@@ -274,8 +275,12 @@ class TestCase1(BaseClass):
         productnames = product.DisplayProductNames()
         if productCarts is not None:
             for productCart, productname in zip(productCarts, productnames):
-                # self.ActionMove(product.NavOverlayContent()).perform()
-                # self.WaitElementPresent(product.overlayContent)
+                #The zip function is used to combine these two lists into pairs of corresponding elements. Each pair consists of one element from productCarts and one element from productnames
+                # e.g The for loop will iterate over these pairs, so in each iteration, productCart and productname will refer to the elements of each pair:
+                #
+                # First iteration: productCart = cart1, productname = name1
+                # Second iteration: productCart = cart2, productname = name2
+                # Third iteration: productCart = cart3, productname = name3
                 product_name = productname.text
                 CartItem.append(product_name)
                 print(f"Product Name: {product_name}")
@@ -286,6 +291,35 @@ class TestCase1(BaseClass):
 
         else:
             print("No element was found")
+
+    def test_ViewProduct(self):
+        product = ProductPage(self.driver)
+        Cart = CartPage(self.driver)
+        product.NavToProductPage()
+        self.ScrollPage(500)
+        self.wait()
+        for i in range(1, 11):
+            view_product_element = product.clickViewProduct(i)
+            if i == 2 and view_product_element:  # Only click if i is 2 and element is found
+                view_product_element.click()
+        assert product.VerifyProductDetail().is_displayed(), "Wrong Page"
+        expected_quantity = 5
+        product.InsProductQuantity(expected_quantity)
+        product.ClickAddtoCart()
+        self.wait()
+        product.ClickViewCartBtn()
+        self.ScrollAndLoadAllProducts()
+        # Verify the quantity in the cart
+        actual_quantity = Cart.VerifyQuantity().text
+
+        # Assert that the quantity in the cart matches the expected quantity
+        assert actual_quantity == str(
+            expected_quantity), f"Expected quantity to be {expected_quantity}, but got {actual_quantity}"
+
+
+
+
+
 
 
 

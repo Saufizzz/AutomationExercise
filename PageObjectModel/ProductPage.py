@@ -10,10 +10,17 @@ class ProductPage:
     womenLink = (By.XPATH,"//a[normalize-space()='Women']")
     ListWomenItem = (By.XPATH,"//div[@id='Women']//div[@class='panel-body']/ul/li")
     ViewProductItemImg = (By.XPATH,"//div[@class='view-product']//img[@alt='ecommerce website products']")
-    AddtoCart = (By.XPATH,"//div[@class='col-sm-9 padding-right']//div//div[1]//div[1]//div[2]//div[1]//a[1]")
+    AddtoCart = (By.XPATH,"//button[normalize-space()='Add to cart']")
+    #AddtoCart = (By.XPATH,"//div[@class='col-sm-9 padding-right']//div//div[1]//div[1]//div[2]//div[1]//a[1]")
     TextAfterAddtoCart = (By.XPATH,"//p[normalize-space()='Your product has been added to cart.']")
     ContinueShoppingbtn = (By.XPATH,"//button[normalize-space()='Continue Shopping']")
     overlayContent = (By.XPATH,"//div[@class='product-overlay']")
+    # ViewProductIcon = (By.XPATH,"//div[@class='choose']//li/a/i")
+    ProductQuantity = (By.XPATH,"//input[@id='quantity']")
+    ProductDetail = (By.XPATH,"//h2[normalize-space()='Blue Top']")
+    ViewCartBtn = (By.XPATH,"//u[normalize-space()='View Cart']")
+
+
 
     def __init__(self,driver):
         self.driver = driver
@@ -38,10 +45,10 @@ class ProductPage:
         product_CartBtn = self.driver.find_elements(By.XPATH, product_CartBtn_XPATH)
         return product_CartBtn
 
-    def clickViewProduct(self,i):
-        ViewProductXpath = f"//div[{i}]//div[1]//div[2]//ul[1]//li[1]//a[1]//i[1]"
-        ViewProduct = self.driver.find_elements(By.XPATH,ViewProductXpath)
-        return ViewProduct
+    def clickViewProduct(self, i):
+        ViewProductXpath = f"//div[@class='col-sm-9 padding-right']//div[{i}]//div[1]//div[2]//ul[1]//li[1]//a[1]//i[1]"
+        ViewProducts = self.driver.find_elements(By.XPATH, ViewProductXpath)
+        return ViewProducts[0] if ViewProducts else None
 
 
     def DisplayViewProductImg(self):
@@ -64,5 +71,18 @@ class ProductPage:
 
     def NavOverlayContent(self):
         return self.driver.find_element(*ProductPage.overlayContent)
+
+    # def ClickViewProduct(self):
+    #     self.driver.find_element(*ProductPage.ViewProductIcon).click()
+
+    def InsProductQuantity(self,quantity):
+        self.driver.find_element(*ProductPage.ProductQuantity).clear()
+        self.driver.find_element(*ProductPage.ProductQuantity).send_keys(quantity)
+
+    def VerifyProductDetail(self):
+        return self.driver.find_element(*ProductPage.ProductDetail)
+
+    def ClickViewCartBtn(self):
+        self.driver.find_element(*ProductPage.ViewCartBtn).click()
 
 
